@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Kallel — Expert-Comptable | Sfax &amp; Tunis</title>
+<meta name="description" content="Ahmed Kallel, Expert-Comptable — Audit et commissariat aux comptes, évaluation des sociétés, tenue des comptes, accompagnement social, juridique et managérial. Sfax & Tunis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:        #16233A;
+    --ink-soft:   #2C3E52;
+    --paper:      #ECEEE4;
+    --paper-line: #D8DBC9;
+    --card:       #F5F6EF;
+    --brass:      #A9823C;
+    --brass-deep: #8A6A2E;
+    --oxblood:    #8B3A2B;
+    --green:      #33533F;
+    --muted:      #5B6B63;
+    --radius:     2px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+
+  /* Ledger rule motif used throughout */
+  .rule{ border:none; border-top:1px solid var(--paper-line); margin:0; }
+  .rule-strong{ border-top:2px solid var(--ink); }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(236,238,228,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.02em;
+  }
+  .brand span{ color:var(--brass-deep); }
+  .nav-links{
+    display:flex; gap:36px;
+    font-size:0.82rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding-bottom:4px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s, color .2s;
+  }
+  .nav-links a:hover{ border-color:var(--brass); color:var(--ink); }
+  .nav-cta{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-weight:600;
+    color:var(--paper) !important;
+    background:var(--ink);
+    padding:10px 18px;
+    text-decoration:none;
+    transition:background .2s;
+  }
+  .nav-cta:hover{ background:var(--green); }
+  .burger{ display:none; }
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:88px 0 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--oxblood);
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--oxblood);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--green);
+  }
+  .hero p.lede{
+    margin-top:22px;
+    max-width:46ch;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+  }
+  .hero-cta{
+    margin-top:34px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 24px;
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-decoration:none;
+    text-transform:uppercase;
+    border:1px solid var(--ink);
+    transition:all .2s;
+  }
+  .btn-solid{ background:var(--ink); color:var(--paper); }
+  .btn-solid:hover{ background:var(--green); border-color:var(--green); }
+  .btn-line{ background:transparent; color:var(--ink); }
+  .btn-line:hover{ background:var(--ink); color:var(--paper); }
+
+  /* ledger stat strip */
+  .stat-strip{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .stat{
+    padding:18px 0;
+    border-right:1px solid var(--paper-line);
+  }
+  .stat:last-child{ border-right:none; }
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.6rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .stat .lbl{
+    font-size:0.74rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    margin-top:4px;
+  }
+
+  /* ===== Stamp (signature element) ===== */
+  .stamp-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .stamp-svg{
+    width:min(340px, 100%);
+    height:auto;
+    filter:drop-shadow(0 12px 24px rgba(22,35,58,0.12));
+  }
+  .stamp-ring-text{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.6px;
+    letter-spacing:2.4px;
+    fill:var(--oxblood);
+    text-transform:uppercase;
+  }
+  .stamp-core-text{
+    font-family:'Fraunces', serif;
+    fill:var(--oxblood);
+  }
+  @keyframes stampDown{
+    0%{ transform:scale(1.5) rotate(-9deg); opacity:0; }
+    55%{ transform:scale(0.94) rotate(-9deg); opacity:1; }
+    75%{ transform:scale(1.04) rotate(-9deg); }
+    100%{ transform:scale(1) rotate(-9deg); opacity:1; }
+  }
+  .stamp-anim{
+    transform-origin:center;
+    animation:stampDown 0.9s cubic-bezier(.2,.9,.3,1) 0.25s both;
+  }
+
+  /* ===== Section shell ===== */
+  section{ padding:84px 0; }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:44px;
+    flex-wrap:wrap;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brass-deep);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{
+    font-size:clamp(1.6rem, 2.6vw, 2.1rem);
+  }
+  .section-head p{
+    max-width:36ch;
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+
+  /* ===== Services — ledger rows ===== */
+  .ledger{
+    border-top:2px solid var(--ink);
+  }
+  .ledger-row{
+    display:grid;
+    grid-template-columns:90px 1fr 1.3fr;
+    gap:28px;
+    padding:30px 0;
+    border-bottom:1px solid var(--paper-line);
+    align-items:start;
+  }
+  .ledger-row .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--brass-deep);
+    padding-top:4px;
+  }
+  .ledger-row h3{
+    font-size:1.25rem;
+    font-weight:600;
+  }
+  .ledger-row p{
+    margin:10px 0 0;
+    color:var(--muted);
+    font-size:0.95rem;
+    max-width:52ch;
+  }
+  .ledger-row:hover{ background:rgba(169,130,60,0.06); }
+
+  /* ===== About ===== */
+  .about{ background:var(--ink); color:var(--paper); }
+  .about .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .about .tag{ color:var(--brass); }
+  .about h2{ color:var(--paper); }
+  .about p.big{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    line-height:1.45;
+    font-weight:500;
+    margin-top:20px;
+  }
+  .about p.big em{ font-style:italic; color:#D9C79A; }
+  .lang-list{
+    display:flex; gap:14px; flex-wrap:wrap;
+    margin-top:30px;
+  }
+  .lang-pill{
+    border:1px solid rgba(236,238,228,0.35);
+    padding:9px 16px;
+    font-size:0.8rem;
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+  }
+  .lang-pill b{ color:var(--brass); }
+  .about-figures{
+    border-left:1px solid rgba(236,238,228,0.25);
+    padding-left:48px;
+  }
+  .fig-row{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-bottom:1px solid rgba(236,238,228,0.18);
+    font-size:0.9rem;
+  }
+  .fig-row:first-child{ padding-top:0; }
+  .fig-row .k{ color:rgba(236,238,228,0.65); }
+  .fig-row .v{ font-family:'IBM Plex Mono', monospace; font-weight:500; }
+
+  /* ===== Contact ===== */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .contact-card{
+    padding:44px 40px;
+  }
+  .contact-card + .contact-card{ border-left:1px solid var(--paper-line); }
+  .contact-card h3{ font-size:1.3rem; margin-bottom:18px; }
+  .contact-item{
+    display:flex; flex-direction:column; gap:4px;
+    padding:16px 0;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .contact-item:last-child{ border-bottom:none; }
+  .contact-item .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--muted);
+  }
+  .contact-item .v{
+    font-size:1.05rem;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .contact-item .v:hover{ color:var(--green); }
+  .contact-note{
+    color:var(--muted);
+    font-size:0.9rem;
+    line-height:1.6;
+  }
+
+  footer{
+    padding:28px 0;
+    text-align:center;
+    font-size:0.78rem;
+    color:var(--muted);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .stamp-wrap{ order:-1; margin-bottom:8px; }
+    .stat-strip{ grid-template-columns:1fr; }
+    .stat{ border-right:none; border-bottom:1px solid var(--paper-line); }
+    .stat:last-child{ border-bottom:none; }
+    .about .wrap{ grid-template-columns:1fr; gap:36px; }
+    .about-figures{ border-left:none; padding-left:0; border-top:1px solid rgba(236,238,228,0.25); padding-top:28px; }
+    .ledger-row{ grid-template-columns:60px 1fr; }
+    .ledger-row p{ grid-column:2 / 3; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .contact-card + .contact-card{ border-left:none; border-top:1px solid var(--paper-line); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .stamp-anim{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  :focus-visible{
+    outline:2px solid var(--oxblood);
+    outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">KALLEL <span>Ahmed</span></div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#profil">Profil</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:ahmed-kallel@outlook.com">Écrire</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Expert-Comptable · Sfax &amp; Tunis</div>
+      <h1>La rigueur des chiffres,<br><em>au service de vos décisions.</em></h1>
+      <p class="lede">
+        Plus de 15 ans d'expérience en finance et comptabilité au service des dirigeants,
+        indépendants et sociétés qui veulent des comptes clairs, des audits sérieux
+        et un accompagnement de confiance — de la tenue quotidienne aux décisions stratégiques.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#contact">Discuter de mon dossier</a>
+        <a class="btn btn-line" href="#services">Voir les services</a>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat">
+          <div class="num">15+</div>
+          <div class="lbl">Ans d'expérience</div>
+        </div>
+        <div class="stat">
+          <div class="num">Sfax / Tunis</div>
+          <div class="lbl">Zones d'intervention</div>
+        </div>
+        <div class="stat">
+          <div class="num">AR · FR · EN</div>
+          <div class="lbl">Langues de travail</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp-wrap">
+      <svg class="stamp-svg stamp-anim" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="128" fill="none" stroke="var(--oxblood)" stroke-width="2"/>
+        <circle cx="150" cy="150" r="112" fill="none" stroke="var(--oxblood)" stroke-width="1"/>
+        <path id="ringTop" d="M 38,150 A 112,112 0 0 1 262,150" fill="none"/>
+        <path id="ringBottom" d="M 262,150 A 112,112 0 0 1 38,150" fill="none"/>
+        <text class="stamp-ring-text">
+          <textPath href="#ringTop" startOffset="50%" text-anchor="middle">Kallel Ahmed · Expert Comptable</textPath>
+        </text>
+        <text class="stamp-ring-text">
+          <textPath href="#ringBottom" startOffset="50%" text-anchor="middle">Audit · Conseil · Gestion</textPath>
+        </text>
+        <line x1="70" y1="150" x2="230" y2="150" stroke="var(--oxblood)" stroke-width="1"/>
+        <text x="150" y="140" text-anchor="middle" class="stamp-core-text" font-size="30" font-weight="600">AK</text>
+        <text x="150" y="172" text-anchor="middle" class="stamp-ring-text" font-size="10.6">SFAX — TUNIS</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag">Grand livre des missions</span>
+        <h2>Ce que je peux prendre en charge pour vous</h2>
+      </div>
+      <p>Quatre familles de missions, du contrôle légal des comptes à l'accompagnement du quotidien.</p>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-row">
+        <div class="code">01</div>
+        <h3>Audit &amp; commissariat aux comptes</h3>
+        <p>Certification des comptes, contrôle légal et missions d'audit contractuel — pour donner à vos associés, banquiers et partenaires une image fidèle et fiable de votre société.</p>
+      </div>
+      <div class="ledger-row">
+        <div class="code">02</div>
+        <h3>Évaluation des sociétés</h3>
+        <p>Valorisation d'entreprise à l'occasion d'une cession, d'une entrée d'associé, d'une levée de fonds ou d'une restructuration, avec une méthodologie adaptée à votre secteur.</p>
+      </div>
+      <div class="ledger-row">
+        <div class="code">03</div>
+        <h3>Tenue des comptes &amp; assistance comptable</h3>
+        <p>Tenue de comptabilité, révision des comptes et production des états financiers, pour des chiffres fiables tout au long de l'année et non seulement à la clôture.</p>
+      </div>
+      <div class="ledger-row">
+        <div class="code">04</div>
+        <h3>Accompagnement social, juridique &amp; managérial</h3>
+        <p>Assistance en paie et déclarations sociales, appui juridique courant et conseil en organisation et pilotage, pour des dirigeants qui veulent avancer sans se disperser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="profil">
+  <div class="wrap">
+    <div>
+      <span class="tag mono">Profil</span>
+      <h2>Ahmed Kallel</h2>
+      <p class="big">
+        Plus de <em>15 ans</em> passés dans la finance et la comptabilité m'ont appris une chose :
+        un chiffre n'a de valeur que s'il est <em>exact, expliqué et exploitable</em>.
+      </p>
+      <div class="lang-list">
+        <div class="lang-pill"><b>Arabe</b> — courant</div>
+        <div class="lang-pill"><b>Français</b> — courant</div>
+        <div class="lang-pill"><b>Anglais</b> — intermédiaire</div>
+      </div>
+    </div>
+    <div class="about-figures">
+      <div class="fig-row">
+        <span class="k">Expérience</span>
+        <span class="v">15+ ans</span>
+      </div>
+      <div class="fig-row">
+        <span class="k">Domaine</span>
+        <span class="v">Finance &amp; comptabilité</span>
+      </div>
+      <div class="fig-row">
+        <span class="k">Zones</span>
+        <span class="v">Sfax — Tunis</span>
+      </div>
+      <div class="fig-row">
+        <span class="k">Missions</span>
+        <span class="v">Audit, évaluation, tenue, conseil</span>
+      </div>
+      <div class="fig-row">
+        <span class="k">Disponibilité</span>
+        <span class="v">Nouveaux dossiers bienvenus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag">Contact</span>
+        <h2>Parlons de votre dossier</h2>
+      </div>
+      <p>Une question, un devis, un premier rendez-vous — je réponds rapidement.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Coordonnées directes</h3>
+        <div class="contact-item">
+          <span class="k">Email</span>
+          <a class="v" href="mailto:ahmed-kallel@outlook.com">ahmed-kallel@outlook.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="k">Téléphone / WhatsApp</span>
+          <a class="v" href="tel:+21622577715">+216 22 577 715</a>
+        </div>
+        <div class="contact-item">
+          <span class="k">Localisation</span>
+          <span class="v">Sfax &amp; Tunis, Tunisie</span>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Avant de m'écrire</h3>
+        <p class="contact-note">
+          Pour gagner du temps dès le premier échange, indiquez si possible :
+          la nature de votre société (SARL, SUARL, personne physique...), le type de mission
+          souhaitée (audit, tenue de comptes, évaluation...), et votre ville.
+          Je reviens vers vous avec les prochaines étapes.
+        </p>
+        <div class="hero-cta" style="margin-top:24px;">
+          <a class="btn btn-solid" href="mailto:ahmed-kallel@outlook.com?subject=Demande%20de%20mission%20comptable">Envoyer un email</a>
+          <a class="btn btn-line" href="https://wa.me/21622577715" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Kallel Ahmed — Expert-Comptable · Sfax &amp; Tunis
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
